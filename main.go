@@ -20,7 +20,7 @@ func main() {
 	p := os.Args[1]
 	l, err := net.Listen("tcp", ":"+p)
 	if err != nil {
-		log.Fatal("failed to listen port %s: %+v", p, err)
+		log.Fatalf("failed to listen port %s: %v", p, err)
 	}
 	if err := run(context.Background(), l); err != nil {
 		fmt.Printf("failed to terminate server: %v", err)
