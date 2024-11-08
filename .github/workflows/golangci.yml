@@ -3,7 +3,7 @@ on:
   pull_request:
     paths:
       - "**.go"
-      - .github/workflow/golangci.yml
+      - .github/workflows/golangci.yml
 
 jobs:
   glangci-lint:
