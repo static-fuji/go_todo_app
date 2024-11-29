@@ -6,13 +6,13 @@ import (
 	"github.com/static-fuji/go_todo_app/entity"
 )
 
-func (r *Repository) ListTask(
+func (r *Repository) ListTasks(
 	ctx context.Context, db Queryer,
 ) (entity.Tasks, error) {
 	tasks := entity.Tasks{}
 	sql := `SELECT
 		id, title, status, created, modified
-		FROM tasks`
+		FROM task`
 	if err := db.SelectContext(ctx, &tasks, sql); err != nil {
 		return nil, err
 	}
@@ -24,7 +24,7 @@ func (r *Repository) AddTask(
 ) error {
 	t.Created = r.Clocker.Now()
 	t.Modified = r.Clocker.Now()
-	sql := `INSERT INTO tasks
+	sql := `INSERT INTO task
 		(title, status, created, modified)
 		VALUES (?, ?, ?, ?)`
 
