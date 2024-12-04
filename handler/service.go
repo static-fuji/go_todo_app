@@ -7,7 +7,7 @@ import (
 )
 
 //go:generate go run github.com/matryer/moq -out moq_test.go . ListTaskService AddTaskService
-type ListTaskService interface {
+type ListTasksService interface {
 	ListTasks(ctx context.Context) (entity.Tasks, error)
 }
 
